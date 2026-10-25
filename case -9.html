@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Delights Bakery & Cake Shop</title>
+</head>
+<link rel="stylesheet" href="case -9.css">
+<body>
+<!-- HEADER -->
+<header>
+    <div class="logo">🎂 Sweet Delights</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#offers">Offers</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#custom">Custom Cakes</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-btn"
+      onclick="toggleCart()">
+      🛒 Cart (<span id="cart-count">0</span>)
+    </button>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <div>
+        <h1>Welcome to Sweet Delights Bakery</h1>
+        <p>
+          Freshly Baked Cakes, Delicious Pastries,
+          Cookies & Custom Creations
+        </p>
+        <button onclick="goTo('products')">
+            Shop Now
+        </button>
+        <button onclick="goTo('custom')">
+            Customize Your Cake
+        </button>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">About Our Bakery</h2>
+    <p class="subtitle">
+        Baking Happiness in Every Bite!
+    </p>
+
+    <p style="text-align:center;max-width:850px;margin:auto">
+        Sweet Delights Bakery is a demonstration
+        cake shop offering delicious cakes, pastries,
+        cookies, cupcakes and desserts. Our bakery
+        focuses on fresh ingredients, creative cake
+        designs and delightful celebrations.
+        Explore our collection of birthday cakes,
+        wedding cakes, anniversary cakes,
+        chocolate desserts and seasonal treats.
+    </p>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+    <h2 class="section-title">Our Delicious Products</h2>
+    <p class="subtitle">
+        Discover freshly baked treats made for every occasion.
+    </p>
+
+    <div class="search-area">
+        <input type="search" id="search"
+          placeholder="Search cakes, cookies, pastries..."
+          oninput="filterProducts()">
+
+        <button onclick="filterProducts()">Search</button>
+        <button onclick="clearSearch()">Clear</button>
+    </div>
+
+    <div class="filters">
+        <button class="active"
+          onclick="setCategory('all',this)">All</button>
+        <button onclick="setCategory('cake',this)">Cakes</button>
+        <button onclick="setCategory('pastry',this)">Pastries</button>
+        <button onclick="setCategory('cookie',this)">Cookies</button>
+        <button onclick="setCategory('cupcake',this)">Cupcakes</button>
+    </div>
+
+    <div class="product-grid" id="product-list">
+
+        <div class="product-card" data-category="cake"
+          data-name="Chocolate Truffle Cake">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
+              alt="Chocolate cake">
+            <div class="product-info">
+                <h3>Chocolate Truffle Cake</h3>
+                <p>Rich chocolate sponge with creamy frosting.</p>
+                <div class="rating">★★★★★ 4.9</div>
+                <span class="price">₹599</span>
+                <span class="old-price">₹749</span>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Chocolate Truffle Cake',599)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Chocolate Truffle Cake',599)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cake"
+          data-name="Red Velvet Cake">
+            <img src="https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=600"
+              alt="Red velvet cake">
+            <div class="product-info">
+                <h3>Red Velvet Cake</h3>
+                <p>Soft velvet layers with smooth cream frosting.</p>
+                <div class="rating">★★★★★ 4.8</div>
+                <span class="price">₹699</span>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Red Velvet Cake',699)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Red Velvet Cake',699)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cake"
+          data-name="Strawberry Cream Cake">
+            <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600"
+              alt="Strawberry dessert cake">
+            <div class="product-info">
+                <h3>Strawberry Cream Cake</h3>
+                <p>Sweet strawberry flavor with fresh cream.</p>
+                <div class="rating">★★★★★ 4.7</div>
+                <span class="price">₹549</span>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Strawberry Cream Cake',549)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Strawberry Cream Cake',549)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cake"
+          data-name="Classic Cheesecake">
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600"
+              alt="Classic cheesecake">
+            <div class="product-info">
+                <h3>Classic Cheesecake</h3>
+                <p>Rich and creamy cheesecake with a biscuit base.</p>
+                <div class="rating">★★★★★ 4.9</div>
+                <span class="price">₹799</span>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Classic Cheesecake',799)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Classic Cheesecake',799)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="pastry"
+          data-name="Chocolate Pastry">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600"
+              alt="Chocolate dessert pastry">
+            <div class="product-info">
+                <h3>Chocolate Pastry</h3>
+                <p>Soft chocolate dessert with creamy layers.</p>
+                <div class="rating">★★★★☆ 4.6</div>
+                <span class="price">₹120</span>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Chocolate Pastry',120)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Chocolate Pastry',120)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="pastry"
+          data-name="Butter Croissant">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600"
+              alt="Butter croissant">
+            <div class="product-info">
+                <h3>Butter Croissant</h3>
+                <p>Golden, flaky pastry with a buttery taste.</p>
+                <div class="rating">★★★★★ 4.8</div>
+                <span class="price">₹99</span>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Butter Croissant',99)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Butter Croissant',99)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cookie"
+          data-name="Chocolate Chip Cookies">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600"
+              alt="Chocolate chip cookies">
+            <div class="product-info">
+                <h3>Chocolate Chip Cookies</h3>
+                <p>Crunchy cookies filled with chocolate chips.</p>
+                <div class="rating">★★★★★ 4.9</div>
+                <span class="price">₹199</span>
+                <p>Pack of 6</p>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Chocolate Chip Cookies',199)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Chocolate Chip Cookies',199)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cookie"
+          data-name="Butter Cookies">
+            <img src="https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=600"
+              alt="Fresh baked goods">
+            <div class="product-info">
+                <h3>Butter Cookies</h3>
+                <p>Delicious homemade-style butter cookies.</p>
+                <div class="rating">★★★★☆ 4.5</div>
+                <span class="price">₹179</span>
+                <p>Pack of 6</p>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Butter Cookies',179)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Butter Cookies',179)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cupcake"
+          data-name="Vanilla Cupcakes">
+            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600"
+              alt="Sweet bakery dessert">
+            <div class="product-info">
+                <h3>Vanilla Cupcakes</h3>
+                <p>Sweet vanilla cupcakes with creamy frosting.</p>
+                <div class="rating">★★★★★ 4.7</div>
+                <span class="price">₹249</span>
+                <p>Box of 4</p>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Vanilla Cupcakes',249)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Vanilla Cupcakes',249)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cupcake"
+          data-name="Chocolate Cupcakes">
+            <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600"
+              alt="Chocolate cupcakes">
+            <div class="product-info">
+                <h3>Chocolate Cupcakes</h3>
+                <p>Mini chocolate cakes with delicious frosting.</p>
+                <div class="rating">★★★★★ 4.8</div>
+                <span class="price">₹299</span>
+                <p>Box of 4</p>
+                <div class="product-buttons">
+                    <button onclick="addToCart('Chocolate Cupcakes',299)">
+                        Add to Cart
+                    </button>
+                    <button onclick="buyNow('Chocolate Cupcakes',299)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <p id="no-results" style="display:none;text-align:center">
+        No products found. Try another search.
+    </p>
+</section>
+
+<!-- SEASONAL OFFERS -->
+<section id="offers">
+    <div class="offer-banner">
+        <h2>🎉 Special Seasonal Offers 🎉</h2>
+        <h3>Celebrate Every Moment With Sweetness!</h3>
+        <p>
+            Get up to 20% OFF on selected cakes.
+            Special birthday and festive cake collections.
+        </p>
+        <p><strong>Use Coupon: SWEET20</strong></p>
+        <button onclick="goTo('products')">
+            Explore Offers
+        </button>
+    </div>
+</section>
+
+<!-- IMAGE GALLERY -->
+<section id="gallery">
+    <h2 class="section-title">Our Bakery Gallery</h2>
+    <p class="subtitle">
+        A beautiful collection of our sweet creations.
+    </p>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
+          alt="Beautiful cake">
+        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600"
+          alt="Cheesecake">
+        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600"
+          alt="Cookies">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600"
+          alt="Croissants">
+        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600"
+          alt="Cupcakes">
+        <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600"
+          alt="Bakery dessert">
+    </div>
+</section>
+
+<!-- CUSTOM CAKE -->
+<section class="custom-section" id="custom">
+    <h2 class="section-title">Design Your Dream Cake</h2>
+    <p class="subtitle">
+        Personalized cakes for birthdays, weddings,
+        anniversaries and special celebrations.
+    </p>
+
+    <div class="custom-container">
+        <div>
+            <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800"
+              alt="Custom celebration cake">
+
+            <h3>Make Every Celebration Special!</h3>
+            <p>
+                Choose your favorite flavor, cake size,
+                decoration style and personalized message.
+                Submit your custom cake request below.
+            </p>
+        </div>
+
+        <form id="custom-form" onsubmit="submitCustom(event)">
+            <h3>Custom Cake Order Form</h3>
+
+            <label for="customer-name">Full Name</label>
+            <input id="customer-name" type="text"
+              placeholder="Enter your name" required>
+
+            <label for="customer-phone">Phone Number</label>
+            <input id="customer-phone" type="tel"
+              placeholder="10-digit mobile number"
+              pattern="[0-9]{10}" required>
+
+            <label for="cake-flavor">Cake Flavor</label>
+            <select id="cake-flavor" required>
+                <option value="">Select Flavor</option>
+                <option>Chocolate</option>
+                <option>Vanilla</option>
+                <option>Red Velvet</option>
+                <option>Strawberry</option>
+                <option>Butterscotch</option>
+                <option>Black Forest</option>
+            </select>
+
+            <label for="cake-size">Cake Size</label>
+            <select id="cake-size" required>
+                <option value="">Select Size</option>
+                <option>0.5 KG</option>
+                <option>1 KG</option>
+                <option>2 KG</option>
+                <option>3 KG</option>
+            </select>
+
+            <label for="cake-design">Cake Design</label>
+            <select id="cake-design">
+                <option>Birthday Cake</option>
+                <option>Wedding Cake</option>
+                <option>Anniversary Cake</option>
+                <option>Cartoon Theme Cake</option>
+                <option>Photo Cake</option>
+                <option>Floral Cake</option>
+            </select>
+
+            <label for="delivery-date">Required Date</label>
+            <input id="delivery-date" type="date" required>
+
+            <label for="cake-message">Special Instructions</label>
+            <textarea id="cake-message" rows="4"
+              placeholder="Cake message, colors, design ideas..."></textarea>
+
+            <button type="submit">Submit Cake Request</button>
+            <p id="custom-result" role="status"></p>
+        </form>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+    <h2 class="section-title">Customer Reviews</h2>
+    <p class="subtitle">
+        Sample reviews for the bakery website design.
+    </p>
+
+    <div class="review-grid">
+        <div class="review-card">
+            <h3>Priya</h3>
+            <div class="rating">★★★★★</div>
+            <p>
+                "The chocolate cake was delicious
+                and beautifully decorated!"
+            </p>
+        </div>
+
+        <div class="review-card">
+            <h3>Rahul</h3>
+            <div class="rating">★★★★★</div>
+            <p>
+                "Wonderful birthday cake designs
+                and amazing flavors."
+            </p>
+        </div>
+
+        <div class="review-card">
+            <h3>Anjali</h3>
+            <div class="rating">★★★★☆</div>
+            <p>
+                "The cookies and pastries were fresh
+                and tasty. Great collection!"
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="section-title">Contact Our Bakery</h2>
+    <p class="subtitle">
+        We'd love to hear from you!
+    </p>
+
+    <div class="contact-grid">
+        <div class="contact-box">
+            <h3>📍 Store Address</h3>
+            <p>Sweet Delights Bakery</p>
+            <p>MG Road, Vijayawada</p>
+            <p>Andhra Pradesh, India</p>
+            <p><small>Demo address – replace with your store details.</small></p>
+        </div>
+
+        <div class="contact-box">
+            <h3>📞 Contact Details</h3>
+            <p>Phone: +91 XXXXX XXXXX</p>
+            <p>Email: hello@example.com</p>
+            <p>Instagram: @sweetdelights_demo</p>
+            <p><small>Replace with actual contact details.</small></p>
+        </div>
+
+        <div class="contact-box">
+            <h3>⏰ Opening Hours</h3>
+            <p>Monday – Friday: 9 AM – 9 PM</p>
+            <p>Saturday: 9 AM – 10 PM</p>
+            <p>Sunday: 10 AM – 8 PM</p>
+            <p><small>Example store hours.</small></p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>🎂 Sweet Delights Bakery</h2>
+    <p>Freshly Baked With Love & Happiness</p>
+    <p>
+        <a href="#home">Home</a> |
+        <a href="#products">Products</a> |
+        <a href="#custom">Custom Cakes</a> |
+        <a href="#contact">Contact</a>
+    </p>
+    <p>&copy; 2026 Sweet Delights Bakery. Demo Website.</p>
+</footer>
+
+<!-- SHOPPING CART -->
+<div id="cart-panel">
+    <h2>🛒 Your Shopping Cart</h2>
+    <div id="cart-items"></div>
+    <h3>Total: ₹<span id="cart-total">0</span></h3>
+    <br>
+    <button onclick="checkout()">Checkout</button>
+    <button onclick="toggleCart()">Close</button>
+</div>
+<!-- JAVASCRIPT -->
+<script>
+let cart = [];
+let selectedCategory = "all";
+
+function goTo(id) {
+    document.getElementById(id)
+      .scrollIntoView({behavior: "smooth"});
+}
+
+function setCategory(category, button) {
+    selectedCategory = category;
+
+    document.querySelectorAll(".filters button")
+      .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+    filterProducts();
+}
+
+function filterProducts() {
+    const search = document.getElementById("search")
+      .value.toLowerCase().trim();
+
+    let found = 0;
+
+    document.querySelectorAll(".product-card")
+      .forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const category = card.dataset.category;
+
+        const matchesSearch = name.includes(search);
+        const matchesCategory =
+          selectedCategory === "all" ||
+          selectedCategory === category;
+
+        if (matchesSearch && matchesCategory) {
+            card.style.display = "block";
+            found++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    document.getElementById("no-results").style.display =
+      found === 0 ? "block" : "none";
+}
+
+function clearSearch() {
+    document.getElementById("search").value = "";
+    filterProducts();
+}
+
+function addToCart(name, price) {
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({name, price, quantity: 1});
+    }
+
+    updateCart();
+    alert(name + " added to cart!");
+}
+
+function buyNow(name, price) {
+    addToCart(name, price);
+    document.getElementById("cart-panel").style.display = "block";
+}
+
+function toggleCart() {
+    const panel = document.getElementById("cart-panel");
+    panel.style.display =
+      panel.style.display === "block" ? "none" : "block";
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function updateCart() {
+    const items = document.getElementById("cart-items");
+    items.innerHTML = "";
+
+    let total = 0;
+    let count = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+
+        const details = document.createElement("span");
+        details.textContent =
+          item.name + " × " + item.quantity +
+          " — ₹" + (item.price * item.quantity);
+
+        const remove = document.createElement("button");
+        remove.textContent = "Remove";
+        remove.onclick = () => removeFromCart(index);
+
+        div.appendChild(details);
+        div.appendChild(remove);
+        items.appendChild(div);
+    });
+
+    if (cart.length === 0) {
+        items.textContent = "Your cart is empty.";
+    }
+
+    document.getElementById("cart-total").textContent = total;
+    document.getElementById("cart-count").textContent = count;
+}
+</script>
+</body>
+</html>
