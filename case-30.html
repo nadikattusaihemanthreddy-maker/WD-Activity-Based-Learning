@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelEase - Bus & Trian Booking</title>
+</head>
+<link rel="stylesheet" href="case-30.css">
+<body>
+
+<header>
+    <div class="logo">TravelEase 🚌 🚆</div>
+    <nav>
+        <button onclick="goTo('home')">Home</button>
+        <button onclick="setType('Bus')">Bus Tickets</button>
+        <button onclick="setType('Train')">Train Tickets</button>
+        <button onclick="goTo('services')">Services</button>
+        <button onclick="goTo('contact')">Contact</button>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Book Bus & Train Tickets Easily</h1>
+    <p>Discover destinations, compare fares and choose your seats.</p>
+    <button class="primary" onclick="goTo('booking')">
+        Book Your Journey
+    </button>
+</section>
+
+<section id="booking">
+    <h2 class="section-title">Search Your Journey</h2>
+
+    <div class="booking-box">
+        <div class="tabs">
+            <button id="busTab" class="active"
+                onclick="setType('Bus')">🚌 Bus Booking</button>
+            <button id="trainTab"
+                onclick="setType('Train')">🚆 Train Booking</button>
+        </div>
+
+        <form id="searchForm">
+            <div class="form-grid">
+                <div>
+                    <label>Source City</label>
+                    <select id="source" required>
+                        <option value="">Select Source</option>
+                        <option>Vijayawada</option>
+                        <option>Hyderabad</option>
+                        <option>Visakhapatnam</option>
+                        <option>Chennai</option>
+                        <option>Bengaluru</option>
+                        <option>Tirupati</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Destination City</label>
+                    <select id="destination" required>
+                        <option value="">Select Destination</option>
+                        <option>Hyderabad</option>
+                        <option>Vijayawada</option>
+                        <option>Visakhapatnam</option>
+                        <option>Chennai</option>
+                        <option>Bengaluru</option>
+                        <option>Tirupati</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Journey Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div>
+                    <label>Number of Passengers</label>
+                    <select id="passengers">
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Travel Class</label>
+                    <select id="travelClass">
+                        <option>AC</option>
+                        <option>Non-AC</option>
+                        <option>Sleeper</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Journey Type</label>
+                    <select>
+                        <option>One Way</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="search-btn">
+                🔍 Search Available Tickets
+            </button>
+        </form>
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="section-title">Our Travel Services</h2>
+
+    <div class="cards">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800"
+                 alt="Bus service">
+            <div class="card-content">
+                <h3>Luxury Bus Booking</h3>
+                <p>Comfortable AC buses with reclining seats.</p>
+                <p>Facilities: Charging, AC and luggage storage.</p>
+                <p class="price">From ₹450</p>
+                <button class="blue" onclick="setType('Bus')">
+                    Book Bus
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800"
+                 alt="Train service">
+            <div class="card-content">
+                <h3>Express Train Booking</h3>
+                <p>Explore cities with convenient train journeys.</p>
+                <p>Classes: Sleeper, AC and Chair Car.</p>
+                <p class="price">From ₹250</p>
+                <button class="blue" onclick="setType('Train')">
+                    Book Train
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=800"
+                 alt="Travel destination">
+            <div class="card-content">
+                <h3>Holiday Travel</h3>
+                <p>Plan exciting trips with friends and family.</p>
+                <p>Choose your route, date and travel service.</p>
+                <p class="price">Explore Routes</p>
+                <button class="blue" onclick="goTo('booking')">
+                    Plan Journey
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="results">
+    <h2 class="section-title">Available Bus & Train Services</h2>
+
+    <p id="routeInfo" style="text-align:center;margin-bottom:20px">
+        Sample services and demonstration fares
+    </p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Type</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Fare</th>
+                    <th>Seats</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="serviceTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<section id="seats">
+    <h2 class="section-title">Select Your Seats</h2>
+
+    <div class="seat-container">
+        <h3 id="seatHeading">Choose a Service First</h3>
+        <p>Front of vehicle ↑</p>
+
+        <div class="seat-grid" id="seatGrid"></div>
+
+        <div class="legend">
+            <span><i class="dot" style="background:#d9e8fa"></i>Available</span>
+            <span><i class="dot" style="background:#16834a"></i>Selected</span>
+            <span><i class="dot" style="background:#aeb5bf"></i>Unavailable</span>
+        </div>
+
+        <div class="summary">
+            <p>Selected Seats: <strong id="selectedSeats">None</strong></p>
+            <p>Fare Per Passenger: ₹<span id="unitFare">0</span></p>
+            <p>Total Fare: ₹<strong id="totalFare">0</strong></p>
+        </div>
+
+        <button class="green" onclick="continueBooking()">
+            Continue to Passenger Details
+        </button>
+    </div>
+</section>
+
+<section id="passengerSection">
+    <h2 class="section-title">Passenger Details</h2>
+
+    <div class="passenger-form">
+        <form id="passengerForm">
+            <div id="passengerFields"></div>
+
+            <h3 style="margin:20px 0">Contact Information</h3>
+
+            <div class="form-grid">
+                <div>
+                    <label>Email Address</label>
+                    <input type="email" id="email"
+                           placeholder="Enter email" required>
+                </div>
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="tel" id="phone"
+                           pattern="[0-9]{10}"
+                           placeholder="10-digit mobile number"
+                           required>
+                </div>
+            </div>
+
+            <div class="summary">
+                <h3>Booking Summary</h3>
+                <p id="bookingSummary">
+                    Select your service and seats to continue.
+                </p>
+            </div>
+
+            <button type="submit" class="green"
+                    style="width:100%">
+                Confirm Booking
+            </button>
+        </form>
+
+        <div id="confirmation">
+            <h2>✓ Booking Confirmed (Demo)</h2>
+            <p id="confirmationText"></p>
+            <p>This is a demonstration ticket, not a real reservation.</p>
+            <button class="blue" onclick="window.print()">
+                Print Booking Details
+            </button>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Why Choose TravelEase?</h2>
+
+    <div class="features">
+        <div class="feature">
+            <span>🎫</span>
+            <h3>Easy Booking</h3>
+            <p>Simple ticket booking process.</p>
+        </div>
+        <div class="feature">
+            <span>💺</span>
+            <h3>Seat Selection</h3>
+            <p>Choose your preferred available seat.</p>
+        </div>
+        <div class="feature">
+            <span>💰</span>
+            <h3>Fare Details</h3>
+            <p>View fares before confirming.</p>
+        </div>
+        <div class="feature">
+            <span>📱</span>
+            <h3>Responsive Design</h3>
+            <p>Works on mobiles and computers.</p>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <h2>TravelEase</h2>
+    <p>Bus & Train Ticket Booking Website</p>
+    <p>Email: support@travelease.example</p>
+    <p>Contact: Demo Website</p>
+    <p>© 2026 TravelEase | Educational Project</p>
+</footer>
+
+<script>
+let travelType = "Bus";
+let currentService = null;
+let selected = [];
+let bookingId = 1000;
+
+const services = [
+    {
+        name: "City Express Bus",
+        type: "Bus",
+        departure: "06:30 AM",
+        arrival: "12:30 PM",
+        fare: 450,
+        seats: 28
+    },
+    {
+        name: "Royal AC Sleeper",
+        type: "Bus",
+        departure: "09:00 PM",
+        arrival: "05:00 AM",
+        fare: 850,
+        seats: 24
+    },
+    {
+        name: "Super Luxury Bus",
+        type: "Bus",
+        departure: "08:00 AM",
+        arrival: "03:00 PM",
+        fare: 650,
+        seats: 30
+    },
+    {
+        name: "Intercity Express",
+        type: "Train",
+        departure: "07:00 AM",
+        arrival: "01:00 PM",
+        fare: 250,
+        seats: 40
+    },
+    {
+        name: "Superfast Express",
+        type: "Train",
+        departure: "05:30 PM",
+        arrival: "11:30 PM",
+        fare: 550,
+        seats: 36
+    },
+    {
+        name: "Night Sleeper Express",
+        type: "Train",
+        departure: "10:00 PM",
+        arrival: "06:00 AM",
+        fare: 750,
+        seats: 32
+    }
+];
+
+function goTo(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function setType(type) {
+    travelType = type;
+
+    document.getElementById("busTab").classList.toggle(
+        "active", type === "Bus"
+    );
+    document.getElementById("trainTab").classList.toggle(
+        "active", type === "Train"
+    );
+
+    showServices();
+    goTo("booking");
+}
+
+function showServices() {
+    const table = document.getElementById("serviceTable");
+    table.innerHTML = "";
+
+    services.forEach((service, index) => {
+        if (service.type !== travelType) return;
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${service.name}</td>
+            <td>${service.type}</td>
+            <td>${service.departure}</td>
+            <td>${service.arrival}</td>
+            <td>₹${service.fare}</td>
+            <td class="available">${service.seats} Demo</td>
+            <td>
+                <button class="blue"
+                    onclick="chooseService(${index})">
+                    Select
+                </button>
+            </td>
+        `;
+
+        table.appendChild(row);
+    });
+}
+
+document.getElementById("searchForm").addEventListener(
+    "submit", function(event) {
+        event.preventDefault();
+
+        const source = document.getElementById("source").value;
+        const destination =
+            document.getElementById("destination").value;
+
+        if (source === destination) {
+            alert("Source and destination must be different.");
+            return;
+        }
+
+        document.getElementById("routeInfo").textContent =
+            travelType + " services: " + source + " to " +
+            destination + " | " +
+            document.getElementById("date").value +
+            " | Sample schedules and fares only";
+
+        showServices();
+        goTo("results");
+    }
+);
+
+function chooseService(index) {
+    currentService = services[index];
+    selected = [];
+
+    document.getElementById("seatHeading").textContent =
+        currentService.name + " - Select Seats";
+
+    document.getElementById("unitFare").textContent =
+        currentService.fare;
+
+    const grid = document.getElementById("seatGrid");
+    grid.innerHTML = "";
+
+    // Four seats per row with a central aisle.
+    // The third grid column is hidden using CSS.
+    const rows = 8;
+
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < 5; col++) {
+            const seat = document.createElement("button");
+            seat.type = "button";
+            seat.className = "seat";
+
+            if (col === 2) {
+                seat.textContent = "-";
+                seat.disabled = true;
+            } else {
+                const seatNo = row * 4 +
+                    (col < 2 ? col + 1 : col);
+
+                seat.textContent = seatNo;
+
+                if ([3, 8, 15, 22].includes(seatNo)) {
+                    seat.classList.add("booked");
+                    seat.disabled = true;
+                } else {
+                    seat.onclick = () => toggleSeat(
+                        seatNo, seat
+                    );
+                }
+            }
+
+            grid.appendChild(seat);
+        }
+    }
+
+    updateTotal();
+    goTo("seats");
+}
+
+function toggleSeat(number, element) {
+    const maxPassengers =
+        Number(document.getElementById("passengers").value);
+
+    if (selected.includes(number)) {
+        selected = selected.filter(n => n !== number);
+        element.classList.remove("selected");
+    } else {
+        if (selected.length >= maxPassengers) {
+            alert("You can select only " +
+                maxPassengers + " seats.");
+            return;
+        }
+
+        selected.push(number);
+        element.classList.add("selected");
+    }
+
+    updateTotal();
+}
+
+function updateTotal() {
+    document.getElementById("selectedSeats").textContent =
+        selected.length ? selected.join(", ") : "None";
+
+    document.getElementById("totalFare").textContent =
+        currentService
+            ? selected.length * currentService.fare
+            : 0;
+}
+
+function continueBooking() {
+    if (!currentService) {
+        alert("Please select a service first.");
+        return;
+    }
+
+    const count =
+        Number(document.getElementById("passengers").value);
+
+    if (selected.length !== count) {
+        alert("Please select exactly " + count + " seats.");
+        return;
+    }
+
+    const fields = document.getElementById("passengerFields");
+    fields.innerHTML = "";
+
+    for (let i = 1; i <= count; i++) {
+        const heading = document.createElement("h3");
+        heading.style.margin = "20px 0";
+        heading.textContent = "Passenger " + i;
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "form-grid";
+
+        wrapper.innerHTML = `
+            <div>
+                <label>Full Name</label>
+                <input type="text" name="passengerName"
+                    placeholder="Passenger name" required>
+            </div>
+            <div>
+                <label>Age</label>
+                <input type="number" name="passengerAge"
+                    min="1" max="120" required>
+            </div>
+            <div>
+                <label>Gender</label>
+                <select name="passengerGender" required>
+                    <option value="">Select</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                    <option>Other</option>
+                    <option>Prefer not to say</option>
+                </select>
+            </div>
+            <div>
+                <label>Seat Number</label>
+                <input type="text"
+                    value="${selected[i-1]}" readonly>
+            </div>
+        `;
+
+        fields.appendChild(heading);
+        fields.appendChild(wrapper);
+    }
+
+    const source = document.getElementById("source").value;
+    const destination =
+        document.getElementById("destination").value;
+
+    document.getElementById("bookingSummary").textContent =
+        currentService.name + " | " +
+        (source || "Source") + " to " +
+        (destination || "Destination") +
+        " | Seats: " + selected.join(", ") +
+        " | Total: ₹" +
+        (selected.length * currentService.fare);
+
+    document.getElementById("confirmation").style.display =
+        "none";
+
+    goTo("passengerSection");
+}
+
+document.getElementById("passengerForm").addEventListener(
+    "submit", function(event) {
+        event.preventDefault();
+
+        if (!currentService || selected.length === 0) {
+            alert("Select a service and seats first.");
+            return;
+        }
+
+        const names = Array.from(
+            document.querySelectorAll(
+                'input[name="passengerName"]'
+            )
+        ).map(input => input.value);
+
+        bookingId++;
+
+        const text =
+            "Booking ID: DEMO" + bookingId +
+            " | Service: " + currentService.name +
+            " | Passengers: " + names.join(", ") +
+            " | Seats: " + selected.join(", ") +
+            " | Total: ₹" +
+            (selected.length * currentService.fare);
+
+        document.getElementById("confirmationText").textContent =
+            text;
+
+        document.getElementById("confirmation").style.display =
+            "block";
+
+        document.getElementById("confirmation").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+);
+
+// Disable past journey dates.
+const today = new Date();
+const localDate = new Date(
+    today.getTime() - today.getTimezoneOffset() * 60000
+).toISOString().split("T")[0];
+
+document.getElementById("date").min = localDate;
+document.getElementById("date").value = localDate;
+
+// Load initial sample services.
+showServices();
+</script>
+
+</body>
+</html>

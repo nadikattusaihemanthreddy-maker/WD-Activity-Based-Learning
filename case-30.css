@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f7fc;
+    color: #243047;
+}
+
+header {
+    background: #103b70;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav button {
+    background: #fff;
+    color: #103b70;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.hero {
+    background: linear-gradient(
+        rgba(8, 28, 58, 0.75),
+        rgba(8, 28, 58, 0.75)
+    ), url('https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1400');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 85px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+.primary {
+    background: #ffb703;
+    color: #14213d;
+}
+
+.blue {
+    background: #1769c2;
+    color: white;
+}
+
+.green {
+    background: #16834a;
+    color: white;
+}
+
+section {
+    padding: 45px 6%;
+}
+
+.section-title {
+    text-align: center;
+    color: #103b70;
+    margin-bottom: 25px;
+    font-size: 29px;
+}
+
+.booking-box {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px #00000015;
+}
+
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.tabs button {
+    background: #e3edf9;
+    color: #103b70;
+    flex: 1;
+}
+
+.tabs button.active {
+    background: #103b70;
+    color: white;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    background: white;
+}
+
+.search-btn {
+    margin-top: 25px;
+    width: 100%;
+    background: #ffb703;
+    font-size: 17px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #00000014;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card h3 {
+    color: #103b70;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.8;
+}
+
+.price {
+    font-size: 23px;
+    color: #16834a;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.card button {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+th, td {
+    padding: 17px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: #103b70;
+    color: white;
+}
+
+tr:hover {
+    background: #f0f6ff;
+}
+
+.available {
+    color: green;
+    font-weight: bold;
+}
+
+.seat-container {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+.seat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 55px);
+    justify-content: center;
+    gap: 13px;
+    margin: 25px 0;
+}
+
+.seat {
+    background: #d9e8fa;
+    color: #103b70;
+    padding: 14px 5px;
+}
+
+.seat:nth-child(5n+3) {
+    visibility: hidden;
+}
+
+.seat.selected {
+    background: #16834a;
+    color: white;
+}
+
+.seat.booked {
+    background: #aeb5bf;
+    color: white;
+    cursor: not-allowed;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.dot {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.passenger-form {
+    background: white;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+.passenger-form .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.summary {
+    background: #eaf3ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    line-height: 2;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.feature {
+    background: white;
+    padding: 28px 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #00000010;
+}
+
+.feature h3 {
+    margin: 15px 0;
+    color: #103b70;
+}
+
+.feature span {
+    font-size: 38px;
+}
+
+footer {
+    background: #103b70;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    line-height: 2;
+}
+
+#confirmation {
+    display: none;
+    background: #e7f9ee;
+    border: 2px solid #16834a;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+#confirmation h2 {
+    color: #16834a;
+}
+
+@media(max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 29px;
+    }
+    .cards, .features,
+    .form-grid,
+    .passenger-form .form-grid {
+        grid-template-columns: 1fr;
+    }
+    section {
+        padding: 30px 4%;
+    }
+    .seat-grid {
+        grid-template-columns: repeat(5, 45px);
+        gap: 8px;
+    }
+}

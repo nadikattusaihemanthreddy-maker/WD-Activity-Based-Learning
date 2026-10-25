@@ -1,0 +1,432 @@
+/*GENERAL STYLING */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #101010;
+    color: white;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #ff5722;
+}
+
+.subtitle {
+    text-align: center;
+    color: #bbb;
+    margin-bottom: 35px;
+}
+
+section {
+    padding: 65px 7%;
+}
+
+button {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: white;
+    color: #ff5722;
+    transform: translateY(-3px);
+}
+
+img {
+    max-width: 100%;
+}
+
+/* NAVIGATION */
+header {
+    background: #080808;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff5722;
+}
+
+/* HERO */
+.hero {
+    min-height: 580px;
+    background:
+        linear-gradient(90deg,
+        rgba(0,0,0,0.88),
+        rgba(0,0,0,0.35)),
+        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=85");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 19px;
+    margin-bottom: 25px;
+    color: #ddd;
+}
+
+.hero button {
+    margin: 5px;
+}
+
+/* ABOUT */
+.about {
+    background: #181818;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+}
+
+.about img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.about h2 {
+    text-align: left;
+}
+
+.about p {
+    color: #ccc;
+    margin: 15px 0;
+}
+
+/* CARDS */
+.grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #202020;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.35s;
+    border: 1px solid #333;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 12px 30px rgba(255,87,34,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.card:hover img {
+    transform: scale(1.04);
+}
+
+.card-content {
+    padding: 23px;
+}
+
+.card h3 {
+    color: #ff5722;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.card p {
+    color: #ccc;
+    margin-bottom: 17px;
+}
+
+/* TRAINERS */
+.trainers {
+    background: #181818;
+}
+
+.trainer-role {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+/* FACILITIES */
+.facility-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.facility {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.facility img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.facility:hover img {
+    transform: scale(1.08);
+}
+
+.facility h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, #000);
+    text-align: center;
+}
+
+/* PRICING */
+.pricing {
+    background: #181818;
+}
+
+.price-card {
+    background: #242424;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid #333;
+    transition: 0.3s;
+}
+
+.price-card:hover {
+    border-color: #ff5722;
+    transform: translateY(-7px);
+}
+
+.price-card.featured {
+    border-color: #ff5722;
+}
+
+.price-card h3 {
+    font-size: 25px;
+}
+
+.price {
+    color: #ff5722;
+    font-size: 37px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.price span {
+    color: #bbb;
+    font-size: 15px;
+}
+
+.price-card ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.price-card li {
+    padding: 9px 0;
+    border-bottom: 1px solid #444;
+}
+
+/* CLASS SCHEDULE */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+    text-align: center;
+}
+
+th {
+    background: #ff5722;
+    padding: 16px;
+}
+
+td {
+    padding: 15px;
+    border: 1px solid #444;
+    background: #202020;
+}
+
+tr:hover td {
+    background: #303030;
+}
+
+/* REGISTRATION */
+.registration {
+    background: #181818;
+}
+
+form {
+    max-width: 650px;
+    margin: auto;
+    background: #242424;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 13px;
+    background: #151515;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: 2px solid #ff5722;
+}
+
+form button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    margin: 10px;
+    color: #ccc;
+}
+
+/* FOOTER */
+footer {
+    background: #050505;
+    padding: 25px;
+    text-align: center;
+    color: #aaa;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .grid,
+    .facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 480px;
+    }
+
+    .grid,
+    .facility-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}

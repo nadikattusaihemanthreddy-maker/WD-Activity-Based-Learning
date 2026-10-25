@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PowerFit | Fitness Center & Gym</title>
+</head>
+<link rel="stylesheet" href="case-13.css">
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="logo">POWERFIT</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#trainers">Trainers</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button onclick="goTo('register')">
+        Join Now
+    </button>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>
+            BUILD YOUR BODY.<br>
+            <span class="highlight">
+                BUILD YOUR CONFIDENCE.
+            </span>
+        </h1>
+
+        <p>
+            Welcome to PowerFit Fitness Center.
+            Discover professional trainers,
+            modern gym equipment, exciting
+            fitness classes and programs for
+            every experience level.
+        </p>
+
+        <button onclick="goTo('register')">
+            Get Started
+        </button>
+
+        <button onclick="goTo('programs')">
+            Explore Programs
+        </button>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="about-container">
+        <img
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=85"
+            alt="People training in a fitness center">
+
+        <div>
+            <h2>
+                ABOUT <span class="highlight">POWERFIT</span>
+            </h2>
+
+            <p>
+                PowerFit is a modern fitness center
+                dedicated to helping people develop
+                healthy, active lifestyles.
+            </p>
+
+            <p>
+                Our gym provides strength training,
+                cardio workouts, yoga classes,
+                personal coaching and group fitness
+                sessions in a welcoming environment.
+            </p>
+
+            <p>
+                Our mission is to make fitness
+                accessible, enjoyable and sustainable
+                for beginners and experienced members.
+            </p>
+
+            <button onclick="goTo('facilities')">
+                Explore Our Gym
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- WORKOUT PROGRAMS -->
+<section id="programs">
+    <h2>OUR <span class="highlight">WORKOUT PROGRAMS</span></h2>
+    <p class="subtitle">
+        Find a training program that suits your goals.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=85"
+                alt="Strength training equipment">
+
+            <div class="card-content">
+                <h3>Strength Training</h3>
+                <p>
+                    Build strength with guided
+                    resistance exercises and
+                    structured training sessions.
+                </p>
+                <button onclick="selectProgram('Strength Training')">
+                    Join Program
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=85"
+                alt="Running and cardio workout">
+
+            <div class="card-content">
+                <h3>Cardio Fitness</h3>
+                <p>
+                    Improve cardiovascular endurance
+                    through walking, cycling,
+                    running and aerobic activities.
+                </p>
+                <button onclick="selectProgram('Cardio Fitness')">
+                    Join Program
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=85"
+                alt="Yoga and flexibility exercise">
+
+            <div class="card-content">
+                <h3>Yoga & Flexibility</h3>
+                <p>
+                    Develop balance, mobility,
+                    relaxation and flexibility
+                    with guided yoga sessions.
+                </p>
+                <button onclick="selectProgram('Yoga & Flexibility')">
+                    Join Program
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=85"
+                alt="Gym resistance workout">
+
+            <div class="card-content">
+                <h3>Weight Training</h3>
+                <p>
+                    Learn safe lifting techniques
+                    and follow progressive
+                    resistance training programs.
+                </p>
+                <button onclick="selectProgram('Weight Training')">
+                    Join Program
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=85"
+                alt="Group fitness exercise">
+
+            <div class="card-content">
+                <h3>Group Fitness</h3>
+                <p>
+                    Enjoy instructor-led group
+                    workouts in a supportive
+                    and energetic atmosphere.
+                </p>
+                <button onclick="selectProgram('Group Fitness')">
+                    Join Program
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=700&q=85"
+                alt="Personal fitness coaching">
+
+            <div class="card-content">
+                <h3>Personal Training</h3>
+                <p>
+                    Receive individualized
+                    guidance and exercise plans
+                    from qualified trainers.
+                </p>
+                <button onclick="selectProgram('Personal Training')">
+                    Join Program
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- TRAINERS -->
+<section class="trainers" id="trainers">
+    <h2>MEET OUR <span class="highlight">TRAINERS</span></h2>
+    <p class="subtitle">
+        Experienced professionals to guide your fitness journey.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=700&q=85"
+                alt="Fitness trainer">
+
+            <div class="card-content">
+                <h3>Rahul Sharma</h3>
+                <p class="trainer-role">
+                    Strength Coach
+                </p>
+                <p>
+                    Specializes in resistance training,
+                    exercise technique and
+                    beginner-friendly gym programs.
+                </p>
+                <button onclick="bookTrainer('Rahul Sharma')">
+                    Book Trainer
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=85"
+                alt="Female fitness instructor">
+
+            <div class="card-content">
+                <h3>Priya Reddy</h3>
+                <p class="trainer-role">
+                    Yoga Instructor
+                </p>
+                <p>
+                    Guides members through
+                    stretching, balance, breathing
+                    and flexibility exercises.
+                </p>
+                <button onclick="bookTrainer('Priya Reddy')">
+                    Book Trainer
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=700&q=85"
+                alt="Personal training session">
+
+            <div class="card-content">
+                <h3>Arjun Kumar</h3>
+                <p class="trainer-role">
+                    Personal Fitness Coach
+                </p>
+                <p>
+                    Provides personalized coaching,
+                    training plans and support
+                    for members at different levels.
+                </p>
+                <button onclick="bookTrainer('Arjun Kumar')">
+                    Book Trainer
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FACILITIES -->
+<section id="facilities">
+    <h2>OUR <span class="highlight">FACILITIES</span></h2>
+    <p class="subtitle">
+        Explore our modern fitness facilities.
+    </p>
+
+    <div class="facility-grid">
+
+        <div class="facility">
+            <img
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=85"
+                alt="Modern gym equipment">
+            <h3>Modern Gym Equipment</h3>
+        </div>
+
+        <div class="facility">
+            <img
+                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=85"
+                alt="Weight training area">
+            <h3>Strength Training Area</h3>
+        </div>
+
+        <div class="facility">
+            <img
+                src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=85"
+                alt="Cardio exercise">
+            <h3>Cardio Training Zone</h3>
+        </div>
+
+        <div class="facility">
+            <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=85"
+                alt="Yoga studio">
+            <h3>Yoga Studio</h3>
+        </div>
+
+        <div class="facility">
+            <img
+                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=85"
+                alt="Group training">
+            <h3>Group Workout Space</h3>
+        </div>
+
+        <div class="facility">
+            <img
+                src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=700&q=85"
+                alt="Fitness coaching area">
+            <h3>Personal Training Area</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="pricing" id="pricing">
+    <h2>MEMBERSHIP <span class="highlight">PLANS</span></h2>
+    <p class="subtitle">
+        Choose a membership plan that fits your needs.
+    </p>
+
+    <div class="grid">
+
+        <div class="price-card">
+            <h3>BASIC</h3>
+            <div class="price">
+                ₹999 <span>/month</span>
+            </div>
+
+            <ul>
+                <li>Gym Equipment Access</li>
+                <li>Cardio Zone Access</li>
+                <li>Locker Facility</li>
+                <li>Basic Fitness Guidance</li>
+                <li>Standard Gym Hours</li>
+            </ul>
+
+            <button onclick="selectPlan('Basic')">
+                Choose Basic
+            </button>
+        </div>
+
+        <div class="price-card featured">
+            <h3>STANDARD</h3>
+            <div class="price">
+                ₹1,999 <span>/month</span>
+            </div>
+
+            <ul>
+                <li>All Basic Features</li>
+                <li>Group Fitness Classes</li>
+                <li>Yoga Sessions</li>
+                <li>Fitness Assessment</li>
+                <li>Extended Gym Hours</li>
+            </ul>
+
+            <button onclick="selectPlan('Standard')">
+                Choose Standard
+            </button>
+        </div>
+
+        <div class="price-card">
+            <h3>PREMIUM</h3>
+            <div class="price">
+                ₹2,999 <span>/month</span>
+            </div>
+
+            <ul>
+                <li>All Standard Features</li>
+                <li>Personal Training Sessions</li>
+                <li>Customized Workout Plan</li>
+                <li>Priority Class Booking</li>
+                <li>Full Gym Access</li>
+            </ul>
+
+            <button onclick="selectPlan('Premium')">
+                Choose Premium
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- CLASS SCHEDULE -->
+<section id="schedule">
+    <h2>FITNESS CLASS <span class="highlight">SCHEDULE</span></h2>
+    <p class="subtitle">
+        Sample weekly fitness class timetable.
+    </p>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Class</th>
+                    <th>Trainer</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>6:00 AM</td>
+                    <td>Yoga</td>
+                    <td>Priya Reddy</td>
+                    <td>
+                        <button onclick="selectProgram('Yoga & Flexibility')">
+                            Book
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Tuesday</td>
+                    <td>7:00 AM</td>
+                    <td>Strength Training</td>
+                    <td>Rahul Sharma</td>
+                    <td>
+                        <button onclick="selectProgram('Strength Training')">
+                            Book
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Wednesday</td>
+                    <td>6:30 AM</td>
+                    <td>Cardio Fitness</td>
+                    <td>Arjun Kumar</td>
+                    <td>
+                        <button onclick="selectProgram('Cardio Fitness')">
+                            Book
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Thursday</td>
+                    <td>5:00 PM</td>
+                    <td>Group Fitness</td>
+                    <td>Priya Reddy</td>
+                    <td>
+                        <button onclick="selectProgram('Group Fitness')">
+                            Book
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Friday</td>
+                    <td>6:00 PM</td>
+                    <td>Weight Training</td>
+                    <td>Rahul Sharma</td>
+                    <td>
+                        <button onclick="selectProgram('Weight Training')">
+                            Book
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Saturday</td>
+                    <td>8:00 AM</td>
+                    <td>Personal Training</td>
+                    <td>Arjun Kumar</td>
+                    <td>
+                        <button onclick="selectProgram('Personal Training')">
+                            Book
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- REGISTRATION -->
+<section class="registration" id="register">
+    <h2>JOIN <span class="highlight">POWERFIT</span></h2>
+    <p class="subtitle">
+        Fill out the form to register your interest.
+    </p>
+
+    <form id="gymForm">
+
+        <label for="name">Full Name</label>
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your full name"
+            required>
+
+        <label for="email">Email Address</label>
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required>
+
+        <label for="phone">Phone Number</label>
+        <input
+            type="tel"
+            id="phone"
+            pattern="[0-9]{10}"
+            title="Enter a 10-digit phone number"
+            placeholder="Enter 10-digit phone number"
+            required>
+
+        <label for="age">Age</label>
+        <input
+            type="number"
+            id="age"
+            min="13"
+            max="100"
+            placeholder="Enter your age"
+            required>
+
+        <label for="gender">Gender (Optional)</label>
+        <select id="gender">
+            <option value="">Prefer not to say</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label for="plan">Membership Plan</label>
+        <select id="plan" required>
+            <option value="">Select Membership</option>
+            <option>Basic</option>
+            <option>Standard</option>
+            <option>Premium</option>
+        </select>
+
+        <label for="program">Workout Program</label>
+        <select id="program" required>
+            <option value="">Select Program</option>
+            <option>Strength Training</option>
+            <option>Cardio Fitness</option>
+            <option>Yoga & Flexibility</option>
+            <option>Weight Training</option>
+            <option>Group Fitness</option>
+            <option>Personal Training</option>
+        </select>
+
+        <label for="trainer">Preferred Trainer</label>
+        <select id="trainer">
+            <option value="">No Preference</option>
+            <option>Rahul Sharma</option>
+            <option>Priya Reddy</option>
+            <option>Arjun Kumar</option>
+        </select>
+
+        <label for="message">Additional Message</label>
+        <textarea
+            id="message"
+            rows="4"
+            placeholder="Enter your questions or preferences"></textarea>
+
+        <button type="submit">
+            Submit Registration
+        </button>
+
+        <button type="reset">
+            Clear Form
+        </button>
+
+        <p id="formMessage"
+           role="status"
+           aria-live="polite"
+           style="margin-top:15px;color:#ffb199;">
+        </p>
+
+    </form>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2>CONTACT <span class="highlight">US</span></h2>
+
+    <p>PowerFit Fitness Center</p>
+    <p>Vijayawada, Andhra Pradesh, India</p>
+    <p>Email: info@powerfit.example</p>
+    <p>Phone: +91 XXXXX XXXXX</p>
+
+    <p>
+        Monday - Saturday: 5:00 AM - 10:00 PM
+    </p>
+
+    <p>Sunday: 7:00 AM - 1:00 PM</p>
+
+    <button onclick="goTo('register')">
+        Join Our Gym
+    </button>
+
+    <button onclick="goTo('home')">
+        Back to Top
+    </button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        &copy; 2026 PowerFit Fitness Center.
+        All Rights Reserved.
+    </p>
+    <p>
+        Train Smart | Stay Active | Feel Strong
+    </p>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+function goTo(sectionId) {
+    document.getElementById(sectionId)
+        .scrollIntoView({ behavior: "smooth" });
+}
+
+function selectPlan(planName) {
+    document.getElementById("plan").value = planName;
+    goTo("register");
+}
+
+function selectProgram(programName) {
+    document.getElementById("program").value = programName;
+    goTo("register");
+}
+
+function bookTrainer(trainerName) {
+    document.getElementById("trainer").value = trainerName;
+    goTo("register");
+}
+
+document.getElementById("gymForm")
+    .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name =
+            document.getElementById("name").value.trim();
+
+        const plan =
+            document.getElementById("plan").value;
+
+        const message =
+            document.getElementById("formMessage");
+
+        message.textContent =
+            "Thank you, " + name +
+            "! Your " + plan +
+            " registration details have been entered. " +
+            "This is a demo form; no information has been sent.";
+
+        alert(
+            "Thank you, " + name +
+            "! Your demo registration form is complete."
+        );
+    });
+
+document.getElementById("gymForm")
+    .addEventListener("reset", function() {
+        document.getElementById("formMessage")
+            .textContent = "";
+    });
+</script>
+
+</body>
+</html>
